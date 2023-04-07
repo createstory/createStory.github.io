@@ -70,6 +70,7 @@ function preload(){
   tFont[4] = loadFont("resources/SFText-5Medium_Italic.otf");
   tFont[5] = loadFont("resources/SFText-6Bold_Italic.otf");
   tFont[6] = loadFont("resources/SFText-6Bold.otf");
+  tFont[7] = loadFont("resources/SFText-5Medium.otf");
 
   for(var n = 0; n < pgImagesMidCount; n++){
     pgImagesMid[n] = loadImage("jsGenerator/resources/images_mid/mid-" + n + ".png");
@@ -151,30 +152,33 @@ function draw(){
     
     if(exportRatio == 0){
       textSize(30);
-      textFont(tFont[6]);
+      textFont(tFont[7]);
       text("Today at Apple",45, 80);
       text("Mumbai Rising", 400, 80);
-      textFont(tFont[3]);
+      textFont(tFont[2]);
       text("BKC",45, 120);
       text("Thukral & Tagra", 400, 120);
       textSize(25);
       text("By " + makerName, 45, 1030);
       text("#AppleMumbaiRising", 740, 1030);
 
-      image(gen_apple, 940, 50, 66, 82);
+      // image(gen_apple, 940, 50, 66, 82);
+      image(gen_apple, 940, 54, 53, 66);
     } else {
       textSize(30);
-      textFont(tFont[6]);
+      textFont(tFont[7]);
       text("Today at Apple",45, 250);
       text("Mumbai Rising", 400, 250);
-      textFont(tFont[3]);
+      textFont(tFont[2]);
       text("BKC",45, 290);
       text("Thukral & Tagra", 400, 290);
       textSize(25);
       text("By " + makerName, 45, 1678);
       text("#AppleMumbaiRising", 740, 1678);
 
-      image(gen_apple, 940, 220, 66, 82);
+      // image(gen_apple, 940, 220, 66, 82);
+      image(gen_apple, 940, 54, 53, 66);
+
     }
   }
   // stroke(foreColor);

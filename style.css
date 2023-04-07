@@ -35,7 +35,7 @@ body::after{
 
 @font-face {
   font-family:'SF-Hello_Bold';
-  src: url('resources/SFText-6Bold.otf')
+  src: url('resources/SFText-5Medium.otf')
 }
 
 html {
@@ -483,6 +483,7 @@ html {
   display: flex;
   height: 100%;
   position: relative;
+  margin-top:7px;
   /* flex-direction:column; */
 
   /* This makes ... */
@@ -505,7 +506,7 @@ html {
   display:flex;
   align-items: center;
   gap: 8px;
-  width:220px;
+  width:200px;
   position: absolute;
   top:50%;;
   left:50%;
