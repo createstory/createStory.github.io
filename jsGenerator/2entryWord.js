@@ -9,8 +9,7 @@ class EntryWord {
     this.imageW = this.w;
     this.imageH = this.h;
 
-    var rs0 = int(random(7));
-    print(rs0);
+    var rs0 = int(random(9));
     this.fontSelect = tFont[rs0];
   }
 

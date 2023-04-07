@@ -70,7 +70,9 @@ function preload(){
   tFont[4] = loadFont("resources/SFText-5Medium_Italic.otf");
   tFont[5] = loadFont("resources/SFText-6Bold_Italic.otf");
   tFont[6] = loadFont("resources/SFText-6Bold.otf");
-  tFont[7] = loadFont("resources/SFText-5Medium.otf");
+  tFont[7] = loadFont("resources/Baskerville-01.ttf");
+  tFont[8] = loadFont("resources/Baskerville-Italic-03.ttf");
+  tFont[9] = loadFont("resources/SFText-5Medium.otf");
 
   for(var n = 0; n < pgImagesMidCount; n++){
     pgImagesMid[n] = loadImage("jsGenerator/resources/images_mid/mid-" + n + ".png");
@@ -152,7 +154,7 @@ function draw(){
     
     if(exportRatio == 0){
       textSize(30);
-      textFont(tFont[7]);
+      textFont(tFont[9]);
       text("Today at Apple",45, 80);
       text("Mumbai Rising", 400, 80);
       textFont(tFont[2]);
@@ -166,7 +168,7 @@ function draw(){
       image(gen_apple, 940, 54, 53, 66);
     } else {
       textSize(30);
-      textFont(tFont[7]);
+      textFont(tFont[9]);
       text("Today at Apple",45, 250);
       text("Mumbai Rising", 400, 250);
       textFont(tFont[2]);

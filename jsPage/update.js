@@ -137,7 +137,7 @@ function runBackToHome(){
   document.getElementById('aboutContainer').style.display = "none";
   document.getElementById('allContainer').style.display = "flex";
 
-  document.getElementById('topHeadline').innerHTML = "Make your story by adding the words below";
+  document.getElementById('topHeadline').innerHTML = "Create story by tapping the words";
   document.getElementById('thankYou').style.display = "none";
 
   document.getElementById('generatorStage').style.display = "none";
