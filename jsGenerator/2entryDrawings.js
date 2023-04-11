@@ -13,7 +13,6 @@ class EntryDrawings {
   }
 
   update(){
-
   }
 
   display(){

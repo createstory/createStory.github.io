@@ -96,31 +96,13 @@ function setExportRatio(val){
   exportRatio = val;
 }
 
-function setExportInvert(val){
-  exportInvert = val;
-
-  if(exportInvert == 0){
-    bkgdColor = color('#000000');
-    foreColor = color('#ffffff');
-    gen_cs = gen_csWh;
-    gen_title = gen_titleWh;
-    gen_arrow = gen_arrowWh;
-    gen_apple = gen_appleWh;
-  } else if(exportInvert == 1){
-    bkgdColor = color('#ffffff');
-    foreColor = color('#000000');
-    gen_cs = gen_csBl;
-    gen_title = gen_titleBl;
-    gen_arrow = gen_arrowBl;
-    gen_apple = gen_appleBl;
-  } else if(exportInvert == 2){
-    bkgdColor = color('#000000');
-    foreColor = color('#ffffff');
-    gen_cs = gen_csWh;
-    gen_title = gen_titleWh;
-    gen_arrow = gen_arrowWh;
-    gen_apple = gen_appleWh;
-
+function setBackground(val){
+  if(document.getElementById("switch").checked){
+    gradientOn = true;
+    document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard " + pgGradSelected + ".jpg')";
+  } else {
+    gradientOn = false;
+    document.documentElement.style.background = "#000";
   }
 }
 
@@ -128,11 +110,13 @@ function exportCore(){
   // pgGrad[pgGradSelected] = loadImage("resources/grads/ap_gradientArtboard " + pgGradSelected + ".png");
 
   if(exportRatio == 0){
-    myCanvas = resizeCanvas(1080,1080);
+    myCanvas = createCanvas(1080,1080);
+    myCanvas.parent("testID");
   } else {
-    myCanvas = resizeCanvas(1080,1920);
+    myCanvas = createCanvas(1080,1920);
+    myCanvas.parent("testID");
   }
-  
+
   if(exportFormat == 0){
     saveStaticOn = true;
   } else {

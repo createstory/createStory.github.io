@@ -23,6 +23,8 @@ function runCreate(){
 
   document.getElementById('recreate').style.display = "inline";
 
+  document.getElementById('canvasID').style.display = "flex";
+
   runReCreate();
 }
 
@@ -43,6 +45,11 @@ function runGoBack(){
   document.getElementById('generatorMode').style.display = "none";
   document.getElementById('finalBar').style.display = "none";
 
+  document.getElementById('canvasID').style.display = "none";
+
+  document.getElementById("switch").checked = false;
+  gradientOn = true;
+  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard " + pgGradSelected + ".jpg')";  
 }
 
 function runGoBack2(){

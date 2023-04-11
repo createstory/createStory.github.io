@@ -33,6 +33,7 @@
       <script src="jsGenerator/2entryGiffs.js" type="text/javascript"></script>
     </head>
 <body>
+  <div id="canvasID"></div>
 
   <div class="allHeader">
     <div class="allHeaderSection" id ="headToday">
@@ -40,15 +41,15 @@
       <h4>BKC</h4>
     </div>
     <div class="allHeaderSection" id ="headMumbai">
-      <h3>Mumbai Rising</h3>
-      <h3>18.4—25.5</h3>
+      <h4>Mumbai Rising</h4>
+      <h4>18.4—25.5</h4>
     </div>
     <div class="allHeaderSection" id ="headSub">
-      <p>Generate a poetic story unique to you,<br>
-      with artists Thukral & Tagra, coded by Kiel M.</p>
+      <h4>Generate a poetic story unique to you,<br>
+      with artists Thukral & Tagra, coded by Kiel M.</h4>
     </div>
     <div class="allHeaderSection" id ="headLogo">
-      <img src="resources/apple_logo_white.png" alt="apple logo">
+      <!-- <img src="resources/apple_logo_white.png" alt="apple logo"> -->
     </div>
   </div>
 
@@ -63,28 +64,27 @@
 
   <div id="generatorStage">
     <div class="allContainer" id="allContainer">
-  
-      <div class="mainTop">
-        <div class="mainTopContainer" id="mainStageNumber">
-          <p>01</p>
-        </div>
-        <div class="mainTopContainer" id="mainArrow">
-          <button type="button" id="goForward"><img src="resources/scrollbar_forward.png" alt="forward alt"></button>
-          <button type="button" id="goBack" onclick="runGoBack()"><img src="resources/scrollbar_goback.png" alt="go back icon alt"></button>
-          <button type="button" id="goBack2" onclick="runGoBack2()"><img src="resources/scrollbar_goback.png" alt="go back icon alt"></button>
-          <button type="button" id="goBack3" onclick="runGoBack3()"><img src="resources/scrollbar_goback.png" alt="go back icon alt"></button>
-        </div>
-        <div class="mainTopContainer" id="mainSubheadline">
-          <div id="topHeadline">Create story by tapping the words</div>
-          <div id="poem"></div>
-          <div id="thankYou"> Dear Friend,<br>Thank you for creating with us.</div>
-        </div>
-      </div>
-      <script></script>
-  
-      
+       
       <div class="mainGenerator">
         <div class="leftSide">
+          
+          <div class="mainTop">
+            <div class="mainTopContainer" id="mainStageNumber">
+              <p>01</p>
+            </div>
+            <div class="mainTopContainer" id="mainArrow">
+              <button type="button" id="goForward"><img src="resources/scrollbar_forward.png" alt="forward alt"></button>
+              <button type="button" id="goBack" onclick="runGoBack()"><img src="resources/scrollbar_goback.png" alt="go back icon alt"></button>
+              <button type="button" id="goBack2" onclick="runGoBack2()"><img src="resources/scrollbar_goback.png" alt="go back icon alt"></button>
+              <button type="button" id="goBack3" onclick="runGoBack3()"><img src="resources/scrollbar_goback.png" alt="go back icon alt"></button>
+            </div>
+            <div class="mainTopContainer" id="mainSubheadline">
+              <div id="topHeadline">Create story by tapping the words</div>
+              <div id="poem"></div>
+              <div id="thankYou"> Dear Friend,<br>Thank you for creating with us.</div>
+            </div>
+          </div> 
+
           <!-- ///////////////////// WORD BOX -->
           <div class="container" id="wordBox">
             <!-- <p class="empty" class="draggable" ></p> -->
@@ -97,133 +97,157 @@
           </div>
   
           <div id="generatorMode">
-            <div id="canvasID"></div>
+            <div id="testID"></div>
             <div class="recreateButton">
               <button type="button" id="recreate" onclick="runReCreate()">ReCreate <span>&#8599</span></button>
             </div>
           </div>
         </div>
-        
-        <div id="uiBar">
-          <div class="uiSection" id="blank"></div>
-          <div class="uiSection" id="shuffle">
-            <button type="button" onclick="shuffleWordBank()"><img src="resources/scrollbar_shuffle.png" alt="go back icon"></button>
-            <p>SHUFFLE WORDS</p>
-          </div>
-          <div class="uiSection" id="startAgain">
-            <button type="button" onclick="clearPoemBank()"><img src="resources/scrollbar_goback.png" alt="go back icon"></button>
-            <p>START AGAIN</p>
-          </div>
-          <div class="uiSection" id="create">
-            <button type="button" onclick="runCreate()">CREATE &#8594</button>
-          </div>
-        </div>
-  
-        <div id="presetBar">
-          <div class="presetSection" id="psPresets">
-            <p>ANIMATE</p>
-  
-            <input type="radio" id="radio1" onclick="changeAnimSet(0)" name="radios" checked>
-              <label for="radio1">QUIET</label>
-            <input type="radio" id="radio2" onclick="changeAnimSet(1)" name="radios">
-              <label for="radio2">MY SONG</label>
-            <input type="radio" id="radio3" onclick="changeAnimSet(2)"name="radios">
-              <label for="radio3">RAIN</label>
-            <input type="radio" id="radio4" onclick="changeAnimSet(3)"name="radios">
-              <label for="radio4">SPEED</label>
-            <input type="radio" id="radio5" onclick="changeAnimSet(4)"name="radios">
-              <label for="radio5">KALI PEELI</label>
-            <input type="radio" id="radio6" onclick="changeAnimSet(5)"name="radios">
-              <label for="radio6">DREAMS</label>
-            <input type="radio" id="radio7" onclick="changeAnimSet(6)"name="radios">
-              <label for="radio7">EMOTION</label>
-            <input type="radio" id="radio8" onclick="changeAnimSet(7)"name="radios">
-              <label for="radio8">PARADISE</label>
-          </div>
-          <div class="presetSection" id="psSliders">
-            <!-- <p>ADJUSTMENTS</p> -->
-            <div id="presetSliders">
-              <div class="wrap">
-                <div class="slider--container-outer">
-                  <div class="slider--container-inner">
-                      <span class="slider--minus">-</span>
-                      <input type="range" min = "1" max = "100" value = "50" oninput="setSliderOne(this.value)" id="slider1" />
-                      <span>+ speed</span>
-                  </div>
-                </div>
-                <div class="slider--container-outer">
-                  <div class="slider--container-inner">
-                    <span class="slider--minus">-</span>
-                    <input type="range" min = "1" max = "100" value = "35" oninput="setSliderTwo(this.value)" id="slider2" />
-                    <span>+ scale</span>
-                  </div>
+
+        <div class="rightSide">
+
+          <div id="uiBar">
+            <div class="uiSection" id="blank"></div>
+            <div class="uiSection" id="shuffle">
+              <button type="button" onclick="shuffleWordBank()"><img src="resources/scrollbar_shuffle.png" alt="go back icon"></button>
+              <p>SHUFFLE WORDS</p>
+            </div>
+            <div class="uiSection" id="startAgain">
+              <button type="button" onclick="clearPoemBank()"><img src="resources/scrollbar_goback.png" alt="go back icon"></button>
+              <p>START AGAIN</p>
+            </div>
+            <div class="uiSection" id="create">
+              <div class="holdBottom-out">
+                <div class="holdBottom-in">
+                  <button type="button" onclick="runCreate()">CREATE &#8594</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="presetSection" id="psExport">
-            <button type="button" onclick="runExportPage()">Export <span>&#8599</span></button>
-          </div>
-        </div>
-  
-        <div id="exportBar">
-          <div class="exportSection" id="exName">
-            <p>INSERT NAME</p>
-            <input type="text" value="" id="makerName" oninput="setMakerName()">
-          </div>
-          <div class="exportSection" id="exFormat">
-            <p>FORMAT</p>
-            <div class="radioSection">
-              <input type="radio" id="radioFormat1" onclick="setExportFormat(0)" name="radioFormat" checked>
-                <label for="radioFormat1">PHOTO</label>
-              <input type="radio" id="radioFormat2" onclick="setExportFormat(1)" name="radioFormat">
-                <label for="radioFormat2">VIDEO</label>
+    
+          <div id="presetBar">
+            <div class="presetSection" id="psPresets">
+              <p>ANIMATE</p>
+    
+              <input type="radio" id="radio1" onclick="changeAnimSet(0)" name="radios" checked>
+                <label for="radio1">QUIET</label>
+              <input type="radio" id="radio2" onclick="changeAnimSet(1)" name="radios">
+                <label for="radio2">MY SONG</label>
+              <input type="radio" id="radio3" onclick="changeAnimSet(2)"name="radios">
+                <label for="radio3">RAIN</label>
+              <input type="radio" id="radio4" onclick="changeAnimSet(3)"name="radios">
+                <label for="radio4">SPEED</label>
+              <input type="radio" id="radio5" onclick="changeAnimSet(4)"name="radios">
+                <label for="radio5">KALI PEELI</label>
+              <input type="radio" id="radio6" onclick="changeAnimSet(5)"name="radios">
+                <label for="radio6">DREAMS</label>
+              <input type="radio" id="radio7" onclick="changeAnimSet(6)"name="radios">
+                <label for="radio7">EMOTION</label>
+              <input type="radio" id="radio8" onclick="changeAnimSet(7)"name="radios">
+                <label for="radio8">PARADISE</label>
+            </div>
+            <div class="presetSection" id="psSliders">
+              <!-- <p>ADJUSTMENTS</p> -->
+              <div id="presetSliders">
+                <div class="wrap">
+                  <div class="slider--container-outer">
+                    <div class="slider--container-inner">
+                      <span class="slider--top">+ SPEED</span>
+                      <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "50" oninput="setSliderOne(this.value)" id="slider1" />
+                      <span class="slider--minus">-</span>
+                    </div>
+                  </div>
+                  <div class="slider--container-outer">
+                    <div class="slider--container-inner">
+                      <span class="slider--top">+ SCALE</span>
+                      <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "35" oninput="setSliderTwo(this.value)" id="slider2" />
+                      <span class="slider--minus">-</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="presetSection" id="psBkgd">
+              <input type="checkbox" id="switch" /><label for="switch" onclick="setBackground()">Toggle</label>
+              <p>BACKGROUND</p>
+            </div>
+
+            <div class="presetSection" id="psExport">
+              <div class="holdBottom-out">
+                <div class="holdBottom-in">
+                  <button type="button" onclick="runExportPage()">SAVE <span>&#8599</span></button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="exportSection" id="exBkgd">
-            <p>BACKGROUND</p>
-            <div class="radioSection">
-              <input type="radio" id="radioInvert1" onclick="setExportInvert(0)" name="radioInvert" checked>
-                <label for="radioInvert1">BLACK</label>
-              <input type="radio" id="radioInvert2" onclick="setExportInvert(1)" name="radioInvert">
-                <label for="radioInvert2">WHITE</label>
-              <input type="radio" id="radioInvert3" onclick="setExportInvert(2)" name="radioInvert">
-                <label for="radioInvert3">GRADIENT</label>
+    
+          <div id="exportBar">
+            <div class="exportSection" id="exBlank">
+            </div>
+            <div class="exportSection" id="exName">
+              <p>INSERT NAME</p>
+              <input type="text" value="" id="makerName" oninput="setMakerName()">
+            </div>
+            <div class="exportSection" id="exFormat">
+              <p>FORMAT</p>
+              <div class="radioSection">
+                <input type="radio" id="radioFormat1" onclick="setExportFormat(0)" name="radioFormat" checked>
+                  <label for="radioFormat1">PHOTO</label>
+                <input type="radio" id="radioFormat2" onclick="setExportFormat(1)" name="radioFormat">
+                  <label for="radioFormat2">VIDEO</label>
+              </div>
+            </div>
+            <!-- <div class="exportSection" id="exBkgd">
+              <p>BACKGROUND</p>
+              <div class="radioSection">
+                <input type="radio" id="radioInvert1" onclick="setExportInvert(0)" name="radioInvert" checked>
+                  <label for="radioInvert1">BLACK</label>
+                <input type="radio" id="radioInvert2" onclick="setExportInvert(1)" name="radioInvert">
+                  <label for="radioInvert2">WHITE</label>
+                <input type="radio" id="radioInvert3" onclick="setExportInvert(2)" name="radioInvert">
+                  <label for="radioInvert3">GRADIENT</label>
+              </div>
+            </div> -->
+            <div class="exportSection"  id="exRatio">
+              <p>RATIO</p>
+              <div class="radioSection">
+                <input type="radio" id="radioRatio1" onclick="setExportRatio(0)" name="radioRatio" checked>
+                  <label for="radioRatio1">SQUARE</label>
+                <input type="radio" id="radioRatio2" onclick="setExportRatio(1)" name="radioRatio">
+                  <label for="radioRatio2">VERTICAL</label>
+              </div>
+            </div>
+            <div class="exportSection" id="exExport">
+              <div class="holdBottom-out">
+                <div class="holdBottom-in">
+                  <button type="button" onclick="runExport()">SAVE <span>&#8599</span></button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="exportSection"  id="exRatio">
-            <p>Ratio</p>
-            <div class="radioSection">
-              <input type="radio" id="radioRatio1" onclick="setExportRatio(0)" name="radioRatio" checked>
-                <label for="radioRatio1">SQUARE</label>
-              <input type="radio" id="radioRatio2" onclick="setExportRatio(1)" name="radioRatio">
-                <label for="radioRatio2">VERTICAL</label>
-            </div>
-          </div>
-          <div class="exportSection" id="exExport">
-            <button type="button" onclick="runExport()">Export <span>&#8599</span></button>
-          </div>
-        </div>
-  
-        <div id="finalBar">
-          <div class="finalBarLeft"></div>
-          <div class="finalBarRight">
+    
+          <div id="finalBar">
             <div class="finalSection" id="fnEmpty">
             </div>
-            <div class="finalSection" id="fnButtons">
-              <div class="finalSet">
-                <button type="button" id="about" onclick="runAbout()"><img src="resources/scrollbar_CSbackToHome.png" alt="cs back to home icon"></button>
-                <p>ABOUT</p>
+            <div class="finalSection" id="fnAbout">
+              <div class="holdBottom-out">
+                <div class="holdBottom-in">
+                  <button type="button" id="about" onclick="runAbout()">ABOUT</button>
+                </div>
               </div>
-              <div class="finalSet">
-                <button type="button" id="backToHome" onclick="runBackToHome()">HOME</button>
+            </div>
+            <div class="finalSection" id="fnHome">
+              <div class="holdBottom-out">
+                <div class="holdBottom-in">
+                  <button type="button" id="backToHome" onclick="runBackToHome()">HOME</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-  
+     </div>
     </div>
+
     <div class="aboutContainer" id="aboutContainer">
       <div class="aboutLeft">
         <div class="profile" id="profileBlank">
@@ -249,16 +273,19 @@
         <div class="profile" id="profileApple">
           <div class="profileName">
           </div>
-          <div class="profileBio">
+          <!-- <div class="profileBio">
             Today at Apple explores ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrudexerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
             <br><a href="https://www.apple.com/au/today/">https://www.apple.com/au/today/</a>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="aboutRight">
+      <div id="aboutRight">
         <div class="aboutRightSection">
-          <button type="button" id="backToHome" onclick="runBackToHome()"><img src="resources/scrollbar_CSbackToHome.png" alt="cs back to home icon"></button>
-          <p>HOME</p>
+          <div class="holdBottom-out">
+            <div class="holdBottom-in">
+              <button type="button" id="backToHome" onclick="runBackToHome()">HOME</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -42,7 +42,6 @@ var animSet = 0;
 
 var exportFormat = 0;
 var exportRatio = 0;
-var exportInvert = 0;
 
 var frate = 30;
 var saveStaticOn = false;
@@ -54,13 +53,16 @@ var numFrames = 120;
 
 var gen_cs, gen_title, gen_arrow;
 var gen_csWh, gen_titleWh, gen_arrowWh;
-var gen_csBl, gen_titleBL, gen_arrowBL;
-var gen_appleBl, gen_appleWh, gen_apple;
+var gen_appleWh, gen_apple;
 
 var sliderA = 0.5;
 var sliderB = 1;
 
 var tempFrameSave = false;
+
+var nudgeX, nudgeY;
+
+var gradientOn = true;
 
 function preload(){
   tFont[0] = loadFont("resources/SFText-1Ultralight.otf");
@@ -70,8 +72,8 @@ function preload(){
   tFont[4] = loadFont("resources/SFText-5Medium_Italic.otf");
   tFont[5] = loadFont("resources/SFText-6Bold_Italic.otf");
   tFont[6] = loadFont("resources/SFText-6Bold.otf");
-  tFont[7] = loadFont("resources/Baskerville-01.ttf");
-  tFont[8] = loadFont("resources/Baskerville-Italic-03.ttf");
+  tFont[7] = loadFont("resources/NewYork.ttf");
+  tFont[8] = loadFont("resources/NewYorkItalic.ttf");
   tFont[9] = loadFont("resources/SFText-5Medium.otf");
 
   for(var n = 0; n < pgImagesMidCount; n++){
@@ -98,13 +100,9 @@ function preload(){
   // }
 
   gen_csWh = loadImage("resources/gen_cs_wh.png");
-  gen_csBl = loadImage("resources/gen_cs_bl.png");
   gen_titleWh = loadImage("resources/gen_title_wh.png");
-  gen_titleBl = loadImage("resources/gen_title_bl.png");
   gen_arrowWh = loadImage("resources/gen_arrow_wh.png");
-  gen_arrowBl = loadImage("resources/gen_arrow_bl.png");
   gen_appleWh = loadImage("resources/apple_logo_white.png");
-  gen_appleBl = loadImage("resources/apple_logo_black.png");
 
   gen_cs = gen_csWh;
   gen_title = gen_titleWh;
@@ -113,8 +111,11 @@ function preload(){
 }
 
 function setup(){
-  var canvasW = int((windowWidth * 0.9) * 0.8);
-  var canvasH = int((windowHeight * 0.9) * 0.9);
+  // var canvasW = int((windowWidth * 0.9) * 0.8);
+  // var canvasH = int((windowHeight * 0.9) * 0.9);
+
+  var canvasW = windowWidth;
+  var canvasH = windowHeight;
 
   myCanvas = createCanvas(canvasW, canvasH);
   myCanvas.parent("canvasID");
@@ -126,7 +127,10 @@ function setup(){
 
   frameRate(frate);
 
-  wWidth = width - 100;
+  // wWidth = width - 100;
+  wWidth = round(width*0.8);
+  nudgeX = (width/2 - ((width * 0.9) * 0.8)/2)/2;
+  nudgeY = (height/2 - ((height * 0.9) * 0.8)/2)/2;
   pgTextSize = 120;
 
   bkgdColor = color('#000000');
@@ -139,7 +143,7 @@ function draw(){
   clear();
 
   if(saveStaticOn || saveMotionOn || tempFrameSave){
-    if(exportInvert == 0 || exportInvert == 1){
+    if(gradientOn == false){
       background(bkgdColor);
     } else {
       if(exportRatio == 0){
@@ -190,8 +194,17 @@ function draw(){
   // rect(0, 0, width, height);
 
   push();
+    if(saveStaticOn || saveMotionOn || tempFrameSave){
+
+    } else {
+      translate(-nudgeX, nudgeY);
+    }
     translate(width/2, height/2);
     
+    // noStroke();
+    // fill(0,255,0);
+    // ellipse(0, 0, 5, 5);
+
     // for seeing out of bounds
     // scale(0.5);
     // noFill();
@@ -218,19 +231,13 @@ function draw(){
     // saveCanvas('TodayAtApple_CreateStory_w'+makerName,'jpg');
     save('TodayAtApple_CreateStory.jpg');
     saveStaticOn = false;
-    noLoop();
-    if(exportRatio == 0){
-      canvas.style.maxHeight = "calc(100vh - 200px)";
-      canvas.style.maxWidth = "calc(100vh - 200px)";
-    } else if(exportRatio == 1){
-      canvas.style.maxHeight = "calc(100vh - 200px)";
-      canvas.style.maxWidth = "calc(56.25vh - 112.5px)";
-    }
 
+    tempFrameSave = true;
     // resetGenerator();
   }
 
   if(tempFrameSave){
+
     noLoop();
     if(exportRatio == 0){
       canvas.style.maxHeight = "calc(100vh - 200px)";
@@ -281,20 +288,26 @@ function resetGenerator(){
   bkgdColor = color('#000000');
   foreColor = color('#ffffff');
 
-  var canvasW = int((windowWidth * 0.9) * 0.8);
-  var canvasH = int((windowHeight * 0.9) * 0.9);
-
+  var canvasW = windowWidth;
+  var canvasH = windowHeight;
+  
   myCanvas = createCanvas(canvasW, canvasH);
   myCanvas.parent("canvasID");
   pixelDensity(thisDensity);
-
+  
   cwidth = int(width/2) * 2;
   cheight = int(height/2) * 2;
 }
 
 function windowResized(){
-  var canvasW = int((windowWidth * 0.9) * 0.8);
-  var canvasH = int((windowHeight * 0.9) * 0.9);
-
-  resizeCanvas(canvasW, canvasH);
+  var canvasW = windowWidth;
+  var canvasH = windowHeight;
+  
+  myCanvas = createCanvas(canvasW, canvasH);
+  myCanvas.parent("canvasID");
+  pixelDensity(thisDensity);
+  
+  cwidth = int(width/2) * 2;
+  cheight = int(height/2) * 2;
 }
+
