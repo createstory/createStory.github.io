@@ -62,6 +62,14 @@ function randomInsert(){
 
     keyArray.splice(insertPoint, 0, "X6");
   }
+
+  // insert for image gifs
+  var r7 = 1;
+  for(var r = 0; r<r7; r++){
+    var insertPoint = round(random(keyArray.length));
+
+    keyArray.splice(insertPoint, 0, "X7");
+  }
 }
 
 function changeAnimSet(val){
@@ -112,16 +120,24 @@ function exportCore(){
   if(exportRatio == 0){
     myCanvas = createCanvas(1080,1080);
     myCanvas.parent("testID");
+
+    canvas.style.maxHeight = "calc(77vh)";
+    canvas.style.maxWidth = "calc(77vh)";
   } else {
     myCanvas = createCanvas(1080,1920);
     myCanvas.parent("testID");
+
+    canvas.style.maxHeight = "calc(77vh)";
+    canvas.style.maxWidth = "calc(43.3vh)";
   }
 
   if(exportFormat == 0){
     saveStaticOn = true;
   } else {
     saveMotionOn = true;
+    recMessageOn = true;
     setRecorder();
+    toggleRecMessage();
   }
 }
 
@@ -144,4 +160,14 @@ function setRecorder(){
     encoder.groupOfPictures = 5; // lower if you have fast actions.
     encoder.initialize();
   })
+}
+
+function toggleRecMessage(){
+  if(recMessageOn){
+    console.log("REC message should be visible");
+    document.getElementById('recMessage').style.display = "inline";
+  } else {
+    console.log("REC message should be gone");
+    document.getElementById('recMessage').style.display = "none";
+  }
 }

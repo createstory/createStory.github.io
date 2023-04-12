@@ -150,6 +150,10 @@ function runBackToHome(){
   document.getElementById('generatorStage').style.display = "none";
   document.getElementById('introStage').style.display = "flex";
 
+  document.getElementById('canvasID').style.display = "none";
+
+  document.getElementById("switch").checked = false;
+
   document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard 0.jpg')";
   resetGenerator();
 }

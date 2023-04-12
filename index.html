@@ -31,6 +31,7 @@
       <script src="jsGenerator/2entryMumbaiType.js" type="text/javascript"></script>
       <script src="jsGenerator/2entryDrawings.js" type="text/javascript"></script>
       <script src="jsGenerator/2entryGiffs.js" type="text/javascript"></script>
+      <script src="jsGenerator/2entryImageGiffs.js" type="text/javascript"></script>
     </head>
 <body>
   <div id="canvasID"></div>
@@ -97,6 +98,7 @@
           </div>
   
           <div id="generatorMode">
+            <div id="recMessage">RECORDING <br>IN PROCESS</div>
             <div id="testID"></div>
             <div class="recreateButton">
               <button type="button" id="recreate" onclick="runReCreate()">ReCreate <span>&#8599</span></button>
@@ -150,20 +152,38 @@
               <!-- <p>ADJUSTMENTS</p> -->
               <div id="presetSliders">
                 <div class="wrap">
+
                   <div class="slider--container-outer">
                     <div class="slider--container-inner">
-                      <span class="slider--top">+ SPEED</span>
-                      <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "50" oninput="setSliderOne(this.value)" id="slider1" />
-                      <span class="slider--minus">-</span>
+                      <div class="sliderSet">
+                        <div class="sliderSlider">
+                          <span class="slider--top">+</span>
+                            <!-- <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "35" oninput="setSliderTwo(this.value)" id="slider2" /> -->
+                            <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "50" oninput="setSliderOne(this.value)" id="slider1" />
+                          <span class="slider--minus">-</span>
+                        </div>
+                        <div class="sliderLabel">
+                          <div class="slider--text">SPEED</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                   <div class="slider--container-outer">
                     <div class="slider--container-inner">
-                      <span class="slider--top">+ SCALE</span>
-                      <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "35" oninput="setSliderTwo(this.value)" id="slider2" />
-                      <span class="slider--minus">-</span>
+                      <div class="sliderSet">
+                        <div class="sliderSlider">
+                          <span class="slider--top">+</span>
+                            <input type="range" class="input-range" orient="vertical" min = "1" max = "100" value = "35" oninput="setSliderTwo(this.value)" id="slider2" />
+                          <span class="slider--minus">-</span>
+                        </div>
+                        <div class="sliderLabel">
+                          <div class="slider--text">SCALE</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

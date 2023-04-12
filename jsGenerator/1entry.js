@@ -63,6 +63,10 @@ class Entry{
       this.w = random(this.h, this.h * 3);
       this.entryArt = new EntryGiffs(this.w, this.h);
  
+    } else if(this.pText == "X7"){       ////////////// Gifs
+      this.w = random(this.h, this.h * 2);
+      this.entryArt = new EntryImageGiffs(this.w, this.h);
+ 
     } else {                            ////////////// Text
       textSize(this.currentTextSize);
       textFont(tFont[6]);

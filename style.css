@@ -105,16 +105,23 @@ html {
 
 /* ///////////////////////////////////////// HEADER */
 
+/* width:90%;
+height:90%;
+position:absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%); */
+
 .allHeader {  
   font-family: 'SF-Hello_Book', sans-serif;
   font-size:18px;
   color: #fff;
 
-  width:72%;
+  width:90%;
   height:5%;
   position:absolute;
 
-  left:41.25%;
+  left:50%;
   top:5%;
   transform: translate(-50%, 0);
 
@@ -127,6 +134,8 @@ html {
   font-size:18px;
 
   margin:0;
+
+  padding-left:0;
 }
 
 .allHeader h4{
@@ -145,7 +154,7 @@ html {
   right:0;
 }
 
-.allHeaderSection#headToday { width:20%; }
+.allHeaderSection#headToday { width:16.0%; }
 .allHeaderSection#headMumbai { width:20%; }
 .allHeaderSection#headSub { width:60%; }
 
@@ -263,15 +272,17 @@ html {
 /* ///////////////////////////////////////// TOP BAR */
 
 .mainTop {
+  /* border: 1px solid #0ff; */
+
   width:100%;
 
   padding-top:50px;
 
   font-family: 'SF-Hello_Book', sans-serif;
+  font-size:18px;
   color:#fff;
-  font-size:16px;
 
-  top:2%;
+  top:3%;
   height:10%;
 
   position:relative;
@@ -280,11 +291,13 @@ html {
 }
 
 .mainTopContainer {
+  /* border: 1px solid #0ff; */
+
   position:relative;
 }
 
 #poem{
-  font-size: 24px;
+  font-size:18px;
   line-height: 1.2;
 }
 
@@ -338,9 +351,9 @@ html {
 .mainTopContainer#mainSubheadline{
   width: 80%;
 
-  font-family: 'SF-Hello_Bold', sans-serif;
+  font-family: 'SF-Hello_Book', sans-serif;
+  font-size:18px;
   color:#fff;
-  font-size:24px;
 }
 
 /* ///////////////////////////////////////// GENERATOR */
@@ -457,7 +470,7 @@ html {
   position:relative;
 
   font-family: 'SF-Hello_Book', sans-serif;
-  font-size:16px;
+  font-size:15px;
   text-align:center;
   color: #fff;
 }
@@ -518,7 +531,7 @@ html {
 /* ////////// Preset Section ///// sliders */
 #presetSliders{
   font-family: 'Gotham_Reg', sans-serif;
-  font-size:12px;
+  font-size:14px;
 
   /* border: 1px solid #ff0; */
 
@@ -531,6 +544,34 @@ html {
 
   height:100%;
 
+  /* border: 1px solid #00f; */
+}
+
+.sliderSet {
+  /* border: 1px solid #00f; */
+
+  display:flex;
+  flex-direction: row;
+}
+
+.sliderLabel {
+  /* border: 1px solid #0f0; */
+  position:relative;
+}
+
+.slider--text {
+  position:absolute;
+  margin-bottom:40px;
+  margin-left:-5px;
+  bottom:0;
+  transform:rotate(270deg);
+}
+
+.sliderSlider {
+  /* border: 1px solid #f00; */
+
+  display:flex;
+  flex-direction: column; 
 }
 
 .slider--container-outer {
@@ -540,14 +581,14 @@ html {
 }
 
 .slider--container-inner {
-  padding-left:25%;
+  padding-left:40%;
 
   /* border: 1px solid #00f; */
   height:100%;
 
   width:50%;
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .input-range {
@@ -570,8 +611,8 @@ input::-moz-focus-inner {
 }
 
 .slider--top{
-  margin-top:30px;
-  margin-bottom: 20px;
+  /* margin-top:30px;
+  margin-bottom: 20px; */
   transform:rotate(90deg);
 }
 
@@ -588,8 +629,7 @@ input::-moz-focus-inner {
   /* -webkit-appearance: none; */
   -webkit-appearance: slider-vertical;
   /* the difference. */
-  background-color: #fff;
-  
+
   height: 100%;
   width: 1px;
   margin-left:50%;
@@ -737,6 +777,7 @@ input[type = "text"] {
 /* ///////////////////////////////////////// FINAL BAR */
 
 #finalBar {
+  
   width:60%;
   height:100%;
 
@@ -749,6 +790,7 @@ input[type = "text"] {
 
 .finalSection button {
   font-family: 'Gotham_Reg', sans-serif;
+  font-size:16px;
 
   width:100%;
   text-align: center;
@@ -761,6 +803,10 @@ input[type = "text"] {
   height: 15%;
 }
 .finalSection#fnHome { height: 15%;}
+
+#backToHome {
+  font-size:16px;
+}
 
 #about {
   background-color: rgba(0, 0, 0, 0);
@@ -775,7 +821,7 @@ input[type = "text"] {
   background-color: white;
   border-radius:500px;
   font-size:12px;
-  cursor: move;
+  cursor: pointer;
 }
 
 .empty {
@@ -785,7 +831,7 @@ input[type = "text"] {
   margin:5px;
   border-radius:500px;
   font-size:12px;
-  cursor: move;
+  cursor: pointer;
 }
 
 button {
@@ -825,33 +871,52 @@ p.draggable {
 }
 
 #testID{
-  padding-top:5px;
-  padding-left:20%;
+  position:absolute;
+  padding-left:16%;
 }
+
+/* ///////////////////////////////////////// REC MESSAGE */
+
+#recMessage {
+  font-family: 'Gotham_Reg', sans-serif;
+  text-align:center;
+  font-size:16px;
+
+  height:50px;
+  width: 160px;
+
+  padding-top:12px;
+
+  position: absolute;
+  bottom:40%;   
+  left:40%;
+  transform: translate(-50%,0);
+
+  border-radius: 500px;
+  background-color:rgb(255,255,255,0.75);
+
+  display:none;
+
+  z-index:100;
+}
+
 
 #goBack2{
   display:none;
 }
 
 #thankYou {
-  font-family: 'SF-Hello_Bold', sans-serif;
+  font-family: 'SF-Hello_Book', sans-serif;
 
   display: none;
 }
 
-/*
-  RADIO BUTTONS
-  Hide radio button (the round disc)
-  we will use just the label to create pushbutton effect
-*/
+/* ///////////////////////////////////////// RADIO */
+
 input[type=radio] {
   display:none; 
 }
 
-/*
-Change the look'n'feel of labels (which are adjacent to radiobuttons).
-Add some margin, padding to label
-*/
 input[type=radio] + label {
   font-family: 'SF-Hello_Book', sans-serif;
   text-align:center;
@@ -866,10 +931,6 @@ input[type=radio] + label {
   cursor: pointer;
 }
 
-/*
-Change background color for label next to checked radio button
-to make it look like highlighted button
-*/
 input[type=radio]:checked + label { 
   color: #000;
 

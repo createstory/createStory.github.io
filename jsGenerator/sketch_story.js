@@ -17,8 +17,10 @@ var pgMumbaiTypeCount = 17;
 var pgMumbaiType = [];
 var pgDrawingsCount = 47;
 var pgDrawings = [];
-var pgGiffsCount = 15;
+var pgGiffsCount = 19;
 var pgGiffs = [];
+var pgImagesGiffsCount = 9;
+var pgImagesGiffs = [];
 
 var pgGradSelected = 0;
 var pgGradCount = 25;
@@ -64,6 +66,8 @@ var nudgeX, nudgeY;
 
 var gradientOn = true;
 
+var recMessageOn = false;
+
 function preload(){
   tFont[0] = loadFont("resources/SFText-1Ultralight.otf");
   tFont[1] = loadFont("resources/SFText-2Light_Italic.otf");
@@ -93,6 +97,9 @@ function preload(){
   }
   for(var n = 0; n < pgGiffsCount; n++){
     pgGiffs[n] = loadImage("jsGenerator/resources/giffs/giffs-" + n + ".gif");
+  }
+  for(var n = 0; n < pgImagesGiffsCount; n++){
+    pgImagesGiffs[n] = loadImage("jsGenerator/resources/images_gif/images-giffs-" + n + ".gif");
   }
 
   // for(var n = 0; n < pgGradCount; n++){
@@ -156,7 +163,7 @@ function draw(){
     fill(foreColor);
     noStroke();
     
-    if(exportRatio == 0){
+    if(exportRatio == 0){           ////////////////// SQUARE
       textSize(30);
       textFont(tFont[9]);
       text("Today at Apple",45, 80);
@@ -170,7 +177,7 @@ function draw(){
 
       // image(gen_apple, 940, 50, 66, 82);
       image(gen_apple, 940, 54, 53, 66);
-    } else {
+    } else {                       ////////////////// VERICAL
       textSize(30);
       textFont(tFont[9]);
       text("Today at Apple",45, 250);
@@ -183,7 +190,7 @@ function draw(){
       text("#AppleMumbaiRising", 740, 1678);
 
       // image(gen_apple, 940, 220, 66, 82);
-      image(gen_apple, 940, 54, 53, 66);
+      image(gen_apple, 940, 220, 53, 66);
 
     }
   }
@@ -239,13 +246,13 @@ function draw(){
   if(tempFrameSave){
 
     noLoop();
-    if(exportRatio == 0){
-      canvas.style.maxHeight = "calc(100vh - 200px)";
-      canvas.style.maxWidth = "calc(100vh - 200px)";
-    } else if(exportRatio == 1){
-      canvas.style.maxHeight = "calc(100vh - 200px)";
-      canvas.style.maxWidth = "calc(56.25vh - 112.5px)";
-    }
+    // if(exportRatio == 0){
+    //   canvas.style.maxHeight = "calc(77vh)";
+    //   canvas.style.maxWidth = "calc(77vh)";
+    // } else if(exportRatio == 1){
+    //   canvas.style.maxHeight = "calc(77vh)";
+    //   canvas.style.maxWidth = "calc(43.3vh)";
+    // }
     tempFrameSave = false;
   }
 
@@ -270,7 +277,8 @@ function draw(){
 
     // setRecorder(); // reinitialize encoder
 
-    // toggleRecMessage();
+    recMessageOn = false;
+    toggleRecMessage();
     // pixelDensity(thisDensity);
     // resetGenerator();
     tempFrameSave = true;
