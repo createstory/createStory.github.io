@@ -25,7 +25,7 @@ function setWordBank(){
   sets[9] = set9string.split(" ");
   var set10string = "Dear BKC , A true wonder, for all to see. May you keep shining, forevermore, And remain the heart of Mumbai's core. The Mithi river flows by your side, A serene beauty for this urban ride."
   sets[10] = set10string.split(" ");
-  var set11string = "Their hearts are big, their spirit high, Mumbaikars never let the city die. With their infectious energy and zeal, They make Mumbai a city that's surreal. They're fighters, survivors, and dreamers too. They keep Mumbai alive, always thriving, the soul of the city."
+  var set11string = "Their hearts are big, their spirit high, Mumbaikars never let the city. With their infectious energy and zeal, They make Mumbai a city that's surreal. They're fighters, survivors, and dreamers too. They keep Mumbai alive, always thriving, the soul of the city."
   sets[11] = set11string.split(" ");
   var set12string = "And as we gaze out to the horizon, Where the sea and sky unite, We're reminded of Mumbai's resilience, And its unbreakable spirit. The salty air fills our lungs, And we breathe in the ocean's might."
   sets[12] = set12string.split(" ");
