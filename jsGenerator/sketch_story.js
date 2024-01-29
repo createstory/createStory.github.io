@@ -7,27 +7,29 @@ var coreString = "";
 var keyArray = [];
 var coreCounter = 0;
 
-var pgImagesMidCount = 117;
+var pgImagesLargeCount = 27;
+var pgImagesLarge = [];
+var pgImagesMidCount = 103;
 var pgImagesMid = [];
-var pgImagesSmallCount = 14;
+var pgImagesSmallCount = 99;
 var pgImagesSmall = [];
-var pgImagesTallCount = 22;
+var pgImagesTallCount = 33;
 var pgImagesTall = [];
-var pgMumbaiTypeCount = 17;
-var pgMumbaiType = [];
+// var pgMumbaiTypeCount = 17;
+// var pgMumbaiType = [];
 var pgDrawingsCount = 47;
 var pgDrawings = [];
-var pgGiffsCount = 19;
-var pgGiffs = [];
-var pgImagesGiffsCount = 9;
-var pgImagesGiffs = [];
+
+var pgGifMedCount = 25;
+var pgGifMed = [];
+var pgGifSmallCount = 19;
+var pgGifSmall = [];
+var pgGifTallCount = 7;
+var pgGifTall = [];
 
 var pgGradSelected = 0;
 var pgGradCount = 25;
 var pgGrad = [];
-
-var imagesGradCount = 26;
-var imagesGrad = [];
 
 var makerName = "Friend";
 
@@ -67,6 +69,7 @@ var nudgeX, nudgeY;
 var gradientOn = true;
 
 var recMessageOn = false;
+var mobileScale = 1;
 
 function preload(){
   tFont[0] = loadFont("resources/SFText-1Ultralight.otf");
@@ -80,6 +83,10 @@ function preload(){
   tFont[8] = loadFont("resources/NewYorkItalic.ttf");
   tFont[9] = loadFont("resources/SFText-5Medium.otf");
 
+  for(var n = 0; n < pgImagesLargeCount; n++){
+    pgImagesLarge[n] = loadImage("jsGenerator/resources/images_large/large-" + n + ".png");
+  }
+
   for(var n = 0; n < pgImagesMidCount; n++){
     pgImagesMid[n] = loadImage("jsGenerator/resources/images_mid/mid-" + n + ".png");
   }
@@ -89,22 +96,27 @@ function preload(){
   for(var n = 0; n < pgImagesTallCount; n++){
     pgImagesTall[n] = loadImage("jsGenerator/resources/images_tall/tall-" + n + ".png");
   }
-  for(var n = 0; n < pgMumbaiTypeCount; n++){
-    pgMumbaiType[n] = loadImage("jsGenerator/resources/mumbai_type/mumbai_type-" + n + ".png");
-  } 
+  // for(var n = 0; n < pgMumbaiTypeCount; n++){
+  //   pgMumbaiType[n] = loadImage("jsGenerator/resources/mumbai_type/mumbai_type-" + n + ".png");
+  // } 
+  for(var n = 0; n < pgGifMedCount; n++){
+    pgGifMed[n] = loadImage("jsGenerator/resources/gif_med/gifMed-" + n + ".gif");
+  }
+  for(var n = 0; n < pgGifSmallCount; n++){
+    pgGifSmall[n] = loadImage("jsGenerator/resources/gif_small/gifSmall-" + n + ".gif");
+  }
+
+  for(var n = 0; n < pgGifTallCount; n++){
+    pgGifTall[n] = loadImage("jsGenerator/resources/gif_tall/gifTall-" + n + ".gif");
+  }
+
   for(var n = 0; n < pgDrawingsCount; n++){
     pgDrawings[n] = loadImage("jsGenerator/resources/drawings/drawings-" + n + ".png");
   }
-  for(var n = 0; n < pgGiffsCount; n++){
-    pgGiffs[n] = loadImage("jsGenerator/resources/giffs/giffs-" + n + ".gif");
-  }
-  for(var n = 0; n < pgImagesGiffsCount; n++){
-    pgImagesGiffs[n] = loadImage("jsGenerator/resources/images_gif/images-giffs-" + n + ".gif");
-  }
 
-  // for(var n = 0; n < pgGradCount; n++){
-  //   pgGrad[n] = loadImage("resources/grads/ap_gradientArtboard " + n + ".jpg");
-  // }
+  for(var n = 0; n < pgGradCount; n++){
+    pgGrad[n] = loadImage("resources/grads/ap_gradientArtboard_" + n + ".jpg");
+  }
 
   gen_csWh = loadImage("resources/gen_cs_wh.png");
   gen_titleWh = loadImage("resources/gen_title_wh.png");
@@ -135,10 +147,22 @@ function setup(){
   frameRate(frate);
 
   // wWidth = width - 100;
-  wWidth = round(width*0.8);
-  nudgeX = (width/2 - ((width * 0.9) * 0.8)/2)/2;
-  nudgeY = (height/2 - ((height * 0.9) * 0.8)/2)/2;
-  pgTextSize = 120;
+  if(windowWidth > 750){          ////////////////// SET NORMAL PARAMETERS
+    mobileScale = 1;
+    pgTextSize = 120;
+
+    wWidth = round(width * 0.8);
+
+    nudgeX = (width/2 - ((width * 0.9) * 0.8)/2)/2;
+    nudgeY = (height/2 - ((height * 0.9) * 0.8)/2)/2;
+  } else {                        ////////////////// SET MOBILE PARAMETERS
+    mobileScale = 1.5;
+    pgTextSize = 80;
+    wWidth = round(width * 0.9);
+
+    nudgeX = 0;
+    nudgeY = -(height/2 - ((height * 0.9) * 0.8)/2)/2;
+  }
 
   bkgdColor = color('#000000');
   foreColor = color('#ffffff');
@@ -166,34 +190,39 @@ function draw(){
     if(exportRatio == 0){           ////////////////// SQUARE
       textSize(30);
       textFont(tFont[9]);
+      textAlign(LEFT)
       text("Today at Apple",45, 80);
-      text("Mumbai Rising", 400, 80);
+      text("ARBORETUM", 400, 80);
       textFont(tFont[2]);
-      text("BKC",45, 120);
-      text("Thukral & Tagra", 400, 120);
+      // text("BKC",45, 120);
       textSize(25);
       text("By " + makerName, 45, 1030);
-      text("#AppleMumbaiRising", 740, 1030);
+      text("Thukral & Tagra", 400, 1030);
+      textAlign(RIGHT)
+      text("#AppleArboretum", 995, 1030);
 
       // image(gen_apple, 940, 50, 66, 82);
       image(gen_apple, 940, 54, 53, 66);
     } else {                       ////////////////// VERICAL
       textSize(30);
       textFont(tFont[9]);
+      textAlign(LEFT)
+
       text("Today at Apple",45, 250);
-      text("Mumbai Rising", 400, 250);
+      text("ARBORETUM", 400, 250);
       textFont(tFont[2]);
-      text("BKC",45, 290);
-      text("Thukral & Tagra", 400, 290);
+      // text("BKC",45, 290);
       textSize(25);
       text("By " + makerName, 45, 1678);
-      text("#AppleMumbaiRising", 740, 1678);
+      text("Thukral & Tagra", 400, 1678);
+      textAlign(RIGHT)
+      text("#AppleArboretum", 995, 1678);
 
       // image(gen_apple, 940, 220, 66, 82);
       image(gen_apple, 940, 220, 53, 66);
-
     }
   }
+  //CANVAS TEST
   // stroke(foreColor);
   // noFill();
   // line(0, 0, width, height);
@@ -207,7 +236,9 @@ function draw(){
       translate(-nudgeX, nudgeY);
     }
     translate(width/2, height/2);
-    
+    if(saveStaticOn || saveMotionOn || tempFrameSave){
+      scale(mobileScale);
+    }
     // noStroke();
     // fill(0,255,0);
     // ellipse(0, 0, 5, 5);

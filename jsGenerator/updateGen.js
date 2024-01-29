@@ -16,7 +16,7 @@ function setText(){
 
 function randomInsert(){
   // insert for images - mid
-  var r1 = 10;
+  var r1 = 8;
   for(var r = 0; r<r1; r++){
     var insertPoint = round(random(keyArray.length));
 
@@ -24,7 +24,7 @@ function randomInsert(){
   }
 
   // insert for images - small
-  var r2 = 2;
+  var r2 = 4;
   for(var r = 0; r<r2; r++){
     var insertPoint = round(random(keyArray.length));
 
@@ -40,7 +40,8 @@ function randomInsert(){
   }
 
   // insert for mumbai Type
-  var r4 = 1;
+  var r4 = 0
+  // var r4 = 1;
   for(var r = 0; r<r4; r++){
     var insertPoint = round(random(keyArray.length));
 
@@ -55,20 +56,36 @@ function randomInsert(){
     keyArray.splice(insertPoint, 0, "X5");
   }
 
-  // insert for gifs
-  var r6 = 2;
+  // insert for gif-med
+  var r6 = 3;
   for(var r = 0; r<r6; r++){
     var insertPoint = round(random(keyArray.length));
 
     keyArray.splice(insertPoint, 0, "X6");
   }
 
-  // insert for image gifs
-  var r7 = 1;
+  // insert for gif-small
+  var r7 = 2;
   for(var r = 0; r<r7; r++){
     var insertPoint = round(random(keyArray.length));
 
     keyArray.splice(insertPoint, 0, "X7");
+  }
+
+  // insert for images - large
+  var r8 = 2;
+  for(var r = 0; r<r8; r++){
+    var insertPoint = round(random(keyArray.length));
+
+    keyArray.splice(insertPoint, 0, "X8");
+  }
+
+  // insert for gif-Large
+  var r9 = 2;
+  for(var r = 0; r<r9; r++){
+    var insertPoint = round(random(keyArray.length));
+
+    keyArray.splice(insertPoint, 0, "X9");
   }
 }
 
@@ -107,7 +124,8 @@ function setExportRatio(val){
 function setBackground(val){
   if(document.getElementById("switch").checked){
     gradientOn = true;
-    document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard " + pgGradSelected + ".jpg')";
+    document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard_" + pgGradSelected + ".jpg')";
+    document.documentElement.style.backgroundSize = "cover";
   } else {
     gradientOn = false;
     document.documentElement.style.background = "#000";
@@ -115,20 +133,33 @@ function setBackground(val){
 }
 
 function exportCore(){
-  // pgGrad[pgGradSelected] = loadImage("resources/grads/ap_gradientArtboard " + pgGradSelected + ".png");
-
   if(exportRatio == 0){
     myCanvas = createCanvas(1080,1080);
     myCanvas.parent("testID");
 
-    canvas.style.maxHeight = "calc(77vh)";
-    canvas.style.maxWidth = "calc(77vh)";
+    if(windowWidth > 750){
+      print("NORMAL VERSION")
+      canvas.style.maxHeight = "calc(77vh)";
+      canvas.style.maxWidth = "calc(77vh)";
+    } else {
+      print("MOBILE VERSION")
+      canvas.style.maxHeight = "calc(90vw)";
+      canvas.style.maxWidth = "calc(90vw)";
+    }
   } else {
     myCanvas = createCanvas(1080,1920);
     myCanvas.parent("testID");
 
-    canvas.style.maxHeight = "calc(77vh)";
-    canvas.style.maxWidth = "calc(43.3vh)";
+    if(windowWidth > 750){
+      print("NORMAL VERSION")
+      canvas.style.maxHeight = "calc(77vh)";
+      canvas.style.maxWidth = "calc(43.3vh)";
+    } else {
+      print("MOBILE VERSION")
+      canvas.style.maxHeight = "calc(133.33vw)";
+      canvas.style.maxWidth = "calc(75vw)";
+    }
+
   }
 
   if(exportFormat == 0){
@@ -164,10 +195,8 @@ function setRecorder(){
 
 function toggleRecMessage(){
   if(recMessageOn){
-    console.log("REC message should be visible");
     document.getElementById('recMessage').style.display = "inline";
   } else {
-    console.log("REC message should be gone");
     document.getElementById('recMessage').style.display = "none";
   }
 }

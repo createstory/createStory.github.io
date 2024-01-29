@@ -1,5 +1,7 @@
 function runStart(){
   document.getElementById('generatorStage').style.display = "flex";
+  document.getElementById('allHeaderBot').style.display = "flex";
+
   document.getElementById('introStage').style.display = "none";
 }
 
@@ -49,7 +51,7 @@ function runGoBack(){
 
   document.getElementById("switch").checked = false;
   gradientOn = true;
-  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard " + pgGradSelected + ".jpg')";  
+  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard_" + pgGradSelected + ".jpg')";  
 }
 
 function runGoBack2(){
@@ -86,7 +88,6 @@ function runGoBack3(){
   document.getElementById('finalBar').style.display = "none";
 
   document.getElementById('recreate').style.display = "inline";
-
 }
 
 function runExportPage() {
@@ -119,11 +120,17 @@ function runAbout(){
   document.getElementById('allContainer').style.display = "none";
   document.getElementById('aboutContainer').style.display = "flex";
   document.getElementById('thankYou').style.display = "none";
+
+  document.getElementById('goBack3').style.display = "none";
+  document.getElementById('goBack4').style.display = "flex";
 }
 
 function runAboutBack(){
   document.getElementById('allContainer').style.display = "flex";
   document.getElementById('aboutContainer').style.display = "none";
+
+  document.getElementById('goBack3').style.display = "flex";
+  document.getElementById('goBack4').style.display = "none";
 }
 
 function runBackToHome(){
@@ -154,7 +161,7 @@ function runBackToHome(){
 
   document.getElementById("switch").checked = false;
 
-  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard 0.jpg')";
+  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard_0.jpg')";
   resetGenerator();
 }
 
@@ -168,13 +175,12 @@ function runReCreate(){
 }
 
 function setBkgd(){
-  var rs0 = round(random(24));
+  var rs0 = round(random(23));
 
-  // document.body.style.backgroundImage = "url('resources/grads/ap_gradientArtboard " + rs0 + ".jpg')";
-  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard " + rs0 + ".jpg')";
+  document.documentElement.style.backgroundImage = "url('resources/grads/ap_gradientArtboard_" + rs0 + ".jpg')";
 
   pgGradSelected = rs0;
-  pgGrad[pgGradSelected] = loadImage("resources/grads/ap_gradientArtboard " + pgGradSelected + ".jpg");
+  pgGrad[pgGradSelected] = loadImage("resources/grads/ap_gradientArtboard_" + pgGradSelected + ".jpg");
 
 }
 

@@ -39,16 +39,16 @@ class Entry{
       this.entryArt = new EntryBox(this.w, this.h);
 
     } else if(this.pText == "X1"){       ////////////// IMAGE Mid
-      this.w = random(this.h, this.h * 4);
+      this.w = random(this.h * 2, this.h * 4);
       this.entryArt = new EntryImageMid(this.w, this.h);
  
     } else if(this.pText == "X2"){       ////////////// IMAGE small
-      this.w = random(this.h, this.h * 2);
+      this.w = random(this.h/4, this.h/2);
       this.entryArt = new EntryImageSmall(this.w, this.h);
  
     } else if(this.pText == "X3"){       ////////////// IMAGE tall
       // this.w = random(this.h, this.h * 2);
-      this.w = this.h;
+      this.w = random(this.h/8, this.h/3);
       this.entryArt = new EntryImageTall(this.w, this.h);
  
     } else if(this.pText == "X4"){       ////////////// Mumbai Type
@@ -59,13 +59,22 @@ class Entry{
       this.w = random(this.h, this.h * 2);
       this.entryArt = new EntryDrawings(this.w, this.h);
  
-    } else if(this.pText == "X6"){       ////////////// Gifs
-      this.w = random(this.h, this.h * 3);
-      this.entryArt = new EntryGiffs(this.w, this.h);
- 
-    } else if(this.pText == "X7"){       ////////////// Gifs
+    } else if(this.pText == "X6"){       ////////////// Gif - Med
       this.w = random(this.h, this.h * 2);
-      this.entryArt = new EntryImageGiffs(this.w, this.h);
+      this.entryArt = new EntryGifMed(this.w, this.h);
+ 
+    } else if(this.pText == "X7"){       ////////////// Gif - Small
+      // this.w = random(this.h, this.h * 2);
+      this.w = random(this.h * 2, this.h * 4);
+      this.entryArt = new EntryGifSmall(this.w, this.h);
+ 
+    } else if(this.pText == "X8"){       ////////////// LARGE
+      this.w = random(this.h * 3, this.h * 7);
+      this.entryArt = new EntryImageLarge(this.w, this.h);
+ 
+    } else if(this.pText == "X9"){       ////////////// gif - Tall
+      this.w = random(this.h/8, this.h/2);
+      this.entryArt = new EntryGifTall(this.w, this.h);
  
     } else {                            ////////////// Text
       textSize(this.currentTextSize);
