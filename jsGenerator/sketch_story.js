@@ -188,33 +188,35 @@ function draw(){
     noStroke();
     
     if(exportRatio == 0){           ////////////////// SQUARE
-      textSize(30);
+      textSize(25);
       textFont(tFont[9]);
       textAlign(LEFT)
       text("Today at Apple",45, 80);
-      text("ARBORETUM", 400, 80);
+      textFont(tFont[2]);
+      text("|  THUKRAL AND TAGRA", 238, 80);
+      // text("ARBORETUM", 400, 80);
       textFont(tFont[2]);
       // text("BKC",45, 120);
-      textSize(25);
       text("By " + makerName, 45, 1030);
-      text("Thukral & Tagra", 400, 1030);
+      // text("Thukral & Tagra", 400, 1030);
       textAlign(RIGHT)
       text("#AppleArboretum", 995, 1030);
 
       // image(gen_apple, 940, 50, 66, 82);
       image(gen_apple, 940, 54, 53, 66);
     } else {                       ////////////////// VERICAL
-      textSize(30);
+      textSize(25);
       textFont(tFont[9]);
       textAlign(LEFT)
 
       text("Today at Apple",45, 250);
-      text("ARBORETUM", 400, 250);
+      textFont(tFont[2]);
+      text("|  THUKRAL AND TAGRA", 238, 250);
+      // text("ARBORETUM", 400, 80);
       textFont(tFont[2]);
       // text("BKC",45, 290);
-      textSize(25);
       text("By " + makerName, 45, 1678);
-      text("Thukral & Tagra", 400, 1678);
+      // text("Thukral & Tagra", 400, 1678);
       textAlign(RIGHT)
       text("#AppleArboretum", 995, 1678);
 

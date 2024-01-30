@@ -139,12 +139,12 @@ function exportCore(){
 
     if(windowWidth > 750){
       print("NORMAL VERSION")
-      canvas.style.maxHeight = "calc(77vh)";
-      canvas.style.maxWidth = "calc(77vh)";
+      canvas.style.maxHeight = "calc(70vh)";
+      canvas.style.maxWidth = "calc(70vh)";
     } else {
       print("MOBILE VERSION")
-      canvas.style.maxHeight = "calc(90vw)";
-      canvas.style.maxWidth = "calc(90vw)";
+      canvas.style.maxHeight = "calc(86vw)";
+      canvas.style.maxWidth = "calc(86vw)";
     }
   } else {
     myCanvas = createCanvas(1080,1920);

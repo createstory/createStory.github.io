@@ -114,7 +114,7 @@ html {
 
 .allHeader {  
   font-family: 'SF-Hello_Book', sans-serif;
-  font-size:18px;
+  font-size:16px;
   color: #fff;
 
   width:100%;
@@ -127,11 +127,16 @@ html {
 
 .allHeader h3{
   font-family: 'SF-Hello_Bold', sans-serif;
-  font-size:18px;
+  font-size:16px;
 
   margin:0;
 
   padding-left:0;
+}
+
+span.headSpecial{
+  font-family: 'SF-Hello_Book', sans-serif;
+  padding-left:10px;
 }
 
 .allHeader h4{
@@ -150,9 +155,9 @@ html {
   right:0;
 }
 
-.allHeaderSection#headToday { width:18%; }
-.allHeaderSection#headMumbai { width:18%; }
-.allHeaderSection#headSub { width:64%; }
+.allHeaderSection#headToday { width:40%; }
+.allHeaderSection#headMumbai { width:20%; }
+.allHeaderSection#headSub { width:40%; }
 
 .allHeaderTop {
   height:50%;
@@ -315,6 +320,8 @@ html {
 #poem{
   font-size:18px;
   line-height: 1.2;
+
+  width:70%;
 }
 
 .mainTop p {
@@ -821,22 +828,28 @@ input[type = "text"] {
 /* ///////////////////////////////////////// DRAGGABLES */
 
 .draggable {
-  height:15px;
-  padding:5px 15px 5px 15px;
+  /* height:15px; */
+  height:22px;
+  /* padding:5px 15px 5px 15px; */
+  padding:5px 18px 5px 18px;
   margin:5px;
   background-color: white;
   border-radius:500px;
-  font-size:12px;
+  font-size:18px;
+  /* font-size:12px; */
   cursor: pointer;
 }
 
 .empty {
-  height:15px;
+  /* height:15px; */
+  height:22px;
   width:35px;
-  padding:5px 15px 5px 15px;
+  /* padding:5px 15px 5px 15px; */
+  padding:5px 18px 5px 18px;
   margin:5px;
   border-radius:500px;
-  font-size:12px;
+  font-size:18px;
+  /* font-size:12px; */
   cursor: pointer;
 }
 
@@ -879,6 +892,7 @@ p.draggable {
 
 #testID{
   position:absolute;
+  padding-top:30px;
   padding-left:16%;
 }
 
