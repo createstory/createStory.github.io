@@ -20,11 +20,11 @@ var pgImagesTall = [];
 var pgDrawingsCount = 47;
 var pgDrawings = [];
 
-var pgGifMedCount = 25;
+var pgGifMedCount = 23;
 var pgGifMed = [];
-var pgGifSmallCount = 19;
+var pgGifSmallCount = 16;
 var pgGifSmall = [];
-var pgGifTallCount = 7;
+var pgGifTallCount = 9;
 var pgGifTall = [];
 
 var pgGradSelected = 0;
