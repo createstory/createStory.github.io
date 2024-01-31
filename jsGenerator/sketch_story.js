@@ -7,13 +7,13 @@ var coreString = "";
 var keyArray = [];
 var coreCounter = 0;
 
-var pgImagesLargeCount = 27;
+var pgImagesLargeCount = 16;
 var pgImagesLarge = [];
-var pgImagesMidCount = 103;
+var pgImagesMidCount = 56;
 var pgImagesMid = [];
-var pgImagesSmallCount = 99;
+var pgImagesSmallCount = 73;
 var pgImagesSmall = [];
-var pgImagesTallCount = 33;
+var pgImagesTallCount = 24;
 var pgImagesTall = [];
 // var pgMumbaiTypeCount = 17;
 // var pgMumbaiType = [];
